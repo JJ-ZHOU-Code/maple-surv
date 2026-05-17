@@ -1,0 +1,35 @@
+[project]
+name = "maple-surv"
+version = "0.1.0"
+description = "Few-shot WSI joint classification and survival prediction"
+requires-python = ">=3.8"
+dependencies = [
+    "torch==2.3.1",
+    "torchvision==0.18.1",
+    "torch-geometric",
+    "wandb",
+    "lifelines",
+    "h5py",
+    "transformers==4.41.2",
+    "einops",
+    "nystrom-attention",
+    "timm",
+    "scikit-learn",
+    "scipy",
+    "pandas",
+    "numpy",
+    "matplotlib",
+    "seaborn",
+    "tqdm",
+    "pyyaml",
+    "ftfy",
+    "regex",
+    "packaging",
+    "opencv-python-headless",
+    "Pillow",
+    "requests",
+    "huggingface-hub",
+]
+
+[tool.uv]
+index-url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple"

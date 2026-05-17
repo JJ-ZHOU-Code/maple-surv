@@ -1,0 +1,28 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# uv
+uv.lock
+
+# Experiment outputs
+result/
+wandb/
+*.log
+
+# Data (never commit large files)
+*.pt
+*.h5
+*.svs
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
