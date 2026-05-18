@@ -5,6 +5,7 @@ import math
 
 from .deepmil import DeepMIL, DSMIL, TransMIL, ILRA, DeepAttnMISL, PatchGCN
 from .vlsa import VLSA
+from .scpp import SCPP
 
 
 ##########################################
@@ -30,18 +31,25 @@ def load_model(arch:str, dims:Optional[List] = None, **kws):
             return Deep_AttnMISL(dims, **kws)
         elif network == 'PatchGCN':
             return Deep_PatchGCN(dims, **kws)
+    elif arch == 'SCPP':
+        return Deep_SCPP(**kws)
     elif arch == 'VLSA':
         return Deep_VLSA(**kws) 
     else:
         raise NotImplementedError("Backbone {} cannot be recognized".format(arch))
 
+def Deep_SCPP(**kws):
+    assert 'text_encoder_cfg'   in kws
+    assert 'image_encoder_cfg'  in kws
+    assert 'prompt_learner_cfg' in kws
+    model = SCPP(**kws)
+    return model
+
 def Deep_VLSA(**kws):
     assert 'text_encoder_cfg'   in kws
     assert 'image_encoder_cfg'  in kws
     assert 'prompt_learner_cfg' in kws
-
     model = VLSA(**kws)
-
     return model
 
 def Deep_PatchGCN(dims, **kws):

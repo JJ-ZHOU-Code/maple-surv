@@ -6,14 +6,14 @@ import yaml
 import numpy as np
 import time
 
-from runner import BaseHandler, SAHandler, VLSAHandler
+from runner import BaseHandler, SAHandler, VLSAHandler, SCPPHandler
 from utils.func import args_grid, print_config
 
 
 def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--config', '-f', required=True, type=str, help='Path to the config file.')
-    parser.add_argument('--handler', '-d', type=str, choices=['SA', 'VLSA', 'CLF'], default='VLSA', help='Model handler.')
+    parser.add_argument('--handler', '-d', type=str, choices=['SA', 'VLSA', 'CLF', 'SCPP'], default='VLSA', help='Model handler.')
     parser.add_argument('--multi_run', action='store_true', help='If execute multi-experiments in this run.')
     parser.add_argument('--sleep', type=int, default=0, help='If sleep X seconds between two runs, only valid in multi_run mode.')
     args = vars(parser.parse_args())
@@ -113,6 +113,8 @@ if __name__ == '__main__':
         handler = VLSAHandler
     elif cfg['handler'] == 'CLF':
         handler = BaseHandler
+    elif cfg['handler'] == 'SCPP':
+        handler = SCPPHandler
     else:
         handler = None
         raise RuntimeError(f"Expected `SA`, `VLSA`, or `CLF` but got {cfg['handler']}")

@@ -11,6 +11,10 @@ CFG = {
         'disk_location': 'NAS01',
         'num_query': 7,
     },
+    'tcga_nsclc': {
+        'disk_location': 'NAS01',
+        'num_query': 8,
+    },
     'tcga_luad': {
         'disk_location': 'NAS01',
         'num_query': 8,
