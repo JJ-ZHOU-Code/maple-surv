@@ -25,7 +25,7 @@ data_split_path: ./data_split/5foldcv/{0}/splits_{2}.csv
 data_split_seed: [0, 1, 2, 3, 4]
 
 arch: VLSA
-path_clip_model: /home/zjj/.cache/huggingface/hub/conch_ViT-B-16-ibrain001
+path_clip_model: /home/zjj/.cache/huggingface/hub
 init_wt: False
 net_output_converter: softmax
 model_saver_module_filter: prompt_encoder
@@ -88,7 +88,7 @@ opt_lr: 0.0002
 opt_weight_decay: 0.00001
 epochs: 10
 batch_size: 1
-bp_every_batch: 32
+bp_every_batch: 16
 num_workers: 4
 es: False
 es_patience: 20

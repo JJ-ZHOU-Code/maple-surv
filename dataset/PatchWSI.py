@@ -183,6 +183,11 @@ class WSIPatchSurv(Dataset):
         self.uid = self.pids
         self.read_path = patch_path
         self.read_format = read_format
+        if self.mode == "patch":
+            valid = [p for p in self.pids if any(osp.exists(osp.join(patch_path, s + "." + read_format)) for s in self.pid2sids[p])]
+            n_skip = len(self.pids) - len(valid)
+            if n_skip: print(f"[WSIPatchSurv] skipping {n_skip} patients with no feature files.")
+            self.pids = valid; self.uid = valid
         self.summary()
 
     def summary(self):
